@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
     - docker
@@ -6,5 +7,5 @@ before_install:
     - docker build -t akakafonis/docker-react -f Dockerfile.dev .
 
 script:
-    #-- --coverage forces test suite to exit automatically as soon as first run is completed
-    - docker run akakafonis/docker-react npm run test -- --coverage
+    #test command should force Jest to run in CI-mode and tests to be run once instead of launching the watcher
+  - docker run -e CI=true akakafonis/docker-react npm run test
