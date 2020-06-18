@@ -3,7 +3,7 @@ services:
     - docker
 
 before_install:
-    -docker build -t akakafonis/docker-react -f Dockerfile.dev .
+    - docker build -t akakafonis/docker-react -f Dockerfile.dev .
 
 script:
     #-- --coverage forces test suite to exit automatically as soon as first run is completed
